@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+     
+    <!-- 콘솔 로그 -->
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" 
+                value="[%d{yyyy-MM-dd HH:mm}] %p - %C{1}.%M(%F:%L) | %m%n" />
+        </layout>
+    
+    </appender>
+     
+   <appender name="FILEAPPENDER" class="org.apache.log4j.RollingFileAppender">
+      <param name="append" value="false"/>
+      
+      <param name="file" value="C:/Temp/log.log"/>
+      <param name="maxFileSize" value="10MB"/>
+      <param name="maxBackupIndex" value="10"/>
+      <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{yyyy-MM-dd HH:mm}] %p - %C{1}.%M(%F:%L) | %m%n"/>
+      </layout>
+      </appender>
+
+    <appender name="MAILAPPENDER" class="org.apache.log4j.net.SMTPAppender">
+        <param name="BufferSize" value="512" />
+        <param name="SMTPHost" value="smtp.gmail.com" />
+        <param name="SMTPPort" value="465" />
+        <param name="SMTPUsername" value="damhyang12@gmail.com" />
+        <param name="SMTPPassword" value="damhyang1590" />
+        <param name="From" value="damhyang12@gmail.com" />
+        <param name="To" value="damhyang12@naver.com" />
+        <param name="Subject" value="Testing Log4j mail notification" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{ISO8601}]%n%n%-5p%n%n%c%n%n%m%n%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="error" />
+            <param name="LevelMax" value="fatal" />
+        </filter>
+    </appender>
+    <!-- 특정 패키지 출력 설정 -->
+    <logger name="java.sql">
+        <level value="DEBUG"/>
+    </logger>
+ 
+    <!-- 기본 출력 설정 -->
+    <root> 
+        <level value="DEBUG" />
+         <appender-ref ref="CONSOLE" />
+         <appender-ref ref="FILEAPPENDER" />
+         <appender-ref ref="MAILAPPENDER" />
+    </root>    
+     
+</log4j:configuration>

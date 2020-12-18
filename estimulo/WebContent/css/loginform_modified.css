@@ -1,0 +1,53 @@
+
+fieldset { padding:0; border:0; margin-top:15px; }
+
+
+.Code_div {
+  width: 100%;
+  position: relative;
+  display:inline;
+  width:85%;
+  background-color: #e6e6e6;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin: 0px 0px 20px 0px;
+}
+
+.Code_search_b {
+  font-family: Ubuntu-Bold;
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 5%;
+  height: 62px;
+  background-color: #827ffe;
+  border-radius: 3px;
+}
+
+.Code_search_b:hover {
+  background-color: #403866;
+}
+
+.dialog_label {
+	display: inline;
+	margin: 0px 5px 20px 0px;
+	font-size: 1.2em;
+	
+}
+
+.dialog_inputBox {
+	font-size: 2em;
+	text-align : center;
+	height : 30px;
+	display: inline;
+	background-color : silver;
+	border-color : black;
+	width:60%;
+	border-radius: 3px;
+	margin: 0px 0px 20px 0px;
+}
+
